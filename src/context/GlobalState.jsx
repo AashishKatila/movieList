@@ -3,8 +3,12 @@ import AppReducer from "./AppReducer";
 
 //Initial State
 const initialState = {
-  holdList: localStorage.getItem("holdList") ? JSON.parse(localStorage.getItem('holdList')) : [],
-  watchedMovie: localStorage.getItem("watchedMovie") ? JSON.parse(localStorage.getItem('watchedMovie')) : [],
+  holdList: localStorage.getItem("holdList")
+    ? JSON.parse(localStorage.getItem("holdList"))
+    : [],
+  watchedMovie: localStorage.getItem("watchedMovie")
+    ? JSON.parse(localStorage.getItem("watchedMovie"))
+    : [],
 };
 
 export const GlobalContext = createContext(initialState);
@@ -16,11 +20,19 @@ export const GlobalProvider = (props) => {
   useEffect(() => {
     localStorage.setItem("holdList", JSON.stringify(state.holdList));
     localStorage.setItem("watchedMovie", JSON.stringify(state.watchedMovie));
-}, [state]);
+  }, [state]);
 
   //To add movie in holdList
   const addMovieToHoldList = (movie) => {
     dispatch({ type: "ADD_MOVIE_TO_HOLDLIST", payload: movie });
+  };
+
+  //To remove the movie from our holdlist
+  const removeMovieFromHoldlist = (id) => {
+    dispatch({
+      type: "REMOVE_MOVIE_FROM_HOLDLIST",
+      payload: id,
+    });
   };
 
   return (
@@ -29,6 +41,7 @@ export const GlobalProvider = (props) => {
         holdList: state.holdList,
         watchedMovie: state.watchedMovie,
         addMovieToHoldList: addMovieToHoldList,
+        removeMovieFromHoldlist: removeMovieFromHoldlist
       }}
     >
       {props.children}

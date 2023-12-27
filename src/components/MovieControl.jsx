@@ -13,11 +13,13 @@ const MovieControl = ({ movie, type }) => {
 
       
         <div className="flex items-center">
+
             {<button onClick={() => addMovieToWatched(movie)}>
              <IoMdEye size={30} />
            </button> }
 
-           <button onClick={() => removeMovieFromHoldlist(movie)}>
+        {/* Removes movie From HoldList */}
+           <button onClick={() => removeMovieFromHoldlist(movie.id)}>
              <ImCross size={20} />
            </button>
          </div>
