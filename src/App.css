@@ -1,0 +1,11 @@
+body{
+  background-color: #D1D5DB;
+}
+.animate-fade-in {
+    opacity: 0.3;
+    animation: fade-in 0.8s ease-in-out forwards; /* Adjust duration as needed */
+  }
+  
+  @keyframes fade-in {
+    to { opacity: 1; }
+  }

@@ -24,17 +24,17 @@ const AddWatchList = () => {
   };
 
   return (
-    <div className="flex flex-col  items-center mx-4 md:mx-6">
+    <div className="flex flex-col mt-4 mx-4 md:mt-6">
       <input
-      className="w-full md:w-[600px] my-4 outline-none border-b-2 text-lg text-gray-500 "
+      className="py-3 px-6 mx-20 rounded-xl bg-gray-700 outline-none border-b-2 text-xl text-slate-300 "
         placeholder="Enter a movie name"
         value={search}
         onChange={handleSearch}
       />
       {results.length > 0 && (
-        <ul className="py-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <ul className="py-6 grid grid-cols-1 items-end md:grid-cols-2 lg:grid-cols-3 gap-4">
           {results.map((movie) => (
-            <li key={movie.id}>
+            <li key={movie.id} className="animate-fade-in">
               <SearchedCards movie={movie} />
             </li>
           ))}
