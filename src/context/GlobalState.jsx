@@ -40,6 +40,11 @@ export const GlobalProvider = (props) => {
     dispatch({type: "ADD_MOVIE_TO_WATCHED",payload:movie})
   }
 
+  //To move watched movies to hold list
+  const moveToHoldList = (movie) =>{
+    dispatch({type:"MOVE_TO_HOLDLIST",payload:movie})
+  } 
+
   return (
     <GlobalContext.Provider
       value={{
@@ -48,6 +53,7 @@ export const GlobalProvider = (props) => {
         addMovieToHoldList: addMovieToHoldList,
         removeMovieFromHoldlist: removeMovieFromHoldlist,
         addMovieToWatched: addMovieToWatched,
+        moveToHoldList:moveToHoldList,
       }}
     >
       {props.children}

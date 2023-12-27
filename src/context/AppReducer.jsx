@@ -21,6 +21,14 @@ export default (state,action) =>{
                     ),
                     watchedMovie: [action.payload,...state.watchedMovie]
                 }
+            case "MOVE_TO_HOLDLIST":
+                return{
+                    ...state,
+                    watchedMovie: state.watchedMovie.filter(
+                        (movie) => movie.id != action.payload.id
+                    ),
+                    holdList: [action.payload,...state.holdList]
+                }
         default:
             return state;
     }

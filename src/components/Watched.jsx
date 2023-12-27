@@ -10,7 +10,7 @@ const Watched = () => {
         {watchedMovie.length > 0 ?(
             <div className='py-6 grid grid-cols-1 items-end md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {watchedMovie.map((movie) => (
-                    <MovieCard movie={movie} key={movie.id} type="watchedMovie" />
+                    <MovieCard movie={movie} key={movie.id} type="watched" />
                 ))}
             </div>
         ) : (
