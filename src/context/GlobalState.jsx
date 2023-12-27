@@ -35,13 +35,19 @@ export const GlobalProvider = (props) => {
     });
   };
 
+  //To add movies in watchedMovies
+  const addMovieToWatched = (movie) =>{
+    dispatch({type: "ADD_MOVIE_TO_WATCHED",payload:movie})
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         holdList: state.holdList,
         watchedMovie: state.watchedMovie,
         addMovieToHoldList: addMovieToHoldList,
-        removeMovieFromHoldlist: removeMovieFromHoldlist
+        removeMovieFromHoldlist: removeMovieFromHoldlist,
+        addMovieToWatched: addMovieToWatched,
       }}
     >
       {props.children}

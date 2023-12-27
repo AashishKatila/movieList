@@ -13,6 +13,14 @@ export default (state,action) =>{
                         (movie) => movie.id !== action.payload
                     )
                 }
+            case "ADD_MOVIE_TO_WATCHED":
+                return{
+                    ...state,
+                    holdList: state.holdList.filter(
+                        (movie) => movie.id !== action.payload.id
+                    ),
+                    watchedMovie: [action.payload,...state.watchedMovie]
+                }
         default:
             return state;
     }
