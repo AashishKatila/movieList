@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchedCards from "./SearchedCards";
 
-const AddWatchList = () => {
+const AddHoldList = () => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
 
@@ -44,4 +44,4 @@ const AddWatchList = () => {
   );
 };
 
-export default AddWatchList;
+export default AddHoldList;

@@ -6,6 +6,13 @@ export default (state,action) =>{
                 ...state,
                 holdList: [action.payload, ...state.holdList]
             }
+            case "REMOVE_MOVIE_FROM_HOLDLIST":
+                return{
+                    ...state,
+                    holdList: state.holdList.filter(
+                        (movie) => movie.id !== action.payload
+                    )
+                }
         default:
             return state;
     }
