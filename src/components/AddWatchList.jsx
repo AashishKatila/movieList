@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SearchedCards from "./SearchedCards";
 
 const AddWatchList = () => {
   const [search, setSearch] = useState("");
@@ -23,20 +24,18 @@ const AddWatchList = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col  items-center mx-4 md:mx-6">
       <input
+      className="w-full md:w-[600px] my-4 outline-none border-b-2 text-lg text-gray-500 "
         placeholder="Enter a movie name"
         value={search}
         onChange={handleSearch}
       />
       {results.length > 0 && (
-        <ul>
+        <ul className="py-6 grid grid-cols-1 md:grid-cols-3 gap-4">
           {results.map((movie) => (
             <li key={movie.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                alt={movie.title}
-              />
+              <SearchedCards movie={movie} />
             </li>
           ))}
         </ul>
