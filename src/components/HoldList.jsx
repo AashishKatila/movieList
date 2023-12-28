@@ -14,8 +14,8 @@ const HoldList = () => {
                 ))}
             </div>
         ) : (
-            <div>
-                Its time to watch movies
+            <div className='text-3xl font-bold text-gray-500 text-center mt-10 uppercase '>
+                You gotta start watching movies
             </div>
         )}
     </div>

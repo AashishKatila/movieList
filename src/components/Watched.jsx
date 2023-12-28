@@ -14,7 +14,7 @@ const Watched = () => {
                 ))}
             </div>
         ) : (
-            <div className='text-3xl font-bold text-gray-500 text-center mt-10'>
+            <div className='text-3xl font-bold text-gray-500 text-center mt-10 uppercase'>
                 You need to complete the movies ASAP!!!
             </div>
             

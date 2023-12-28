@@ -4,7 +4,7 @@ import { IoMdEye,IoMdEyeOff  } from "react-icons/io";
 import { ImCross } from "react-icons/im";
 
 const MovieControl = ({ movie, type }) => {
-  const { removeMovieFromHoldlist, addMovieToWatched,moveToHoldList } =
+  const { removeMovieFromHoldlist, addMovieToWatched,moveToHoldList, removeFromWatched } =
     useContext(GlobalContext);
   return (
     <div className="text-white absolute top-[130px] left-[70px] w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -34,7 +34,7 @@ const MovieControl = ({ movie, type }) => {
             </button>
           
           {/* Removes movie From HoldList */}
-          <button onClick={() => removeMovieFromHoldlist(movie.id)}>
+          <button onClick={() => removeFromWatched(movie.id)}>
             <ImCross size={20} />
           </button>
         </div>

@@ -31,7 +31,7 @@ const AddHoldList = () => {
         value={search}
         onChange={handleSearch}
       />
-      {results.length > 0 && (
+      {results.length > 0 &&  (
         <ul className="py-6 grid grid-cols-1 items-end md:grid-cols-2 lg:grid-cols-3 gap-4">
           {results.map((movie) => (
             <li key={movie.id} className="animate-fade-in">

@@ -3,14 +3,16 @@ import { GlobalContext } from "../context/GlobalState";
 import '../App.css'
 
 const SearchedCards = ({ movie }) => {
-  const { addMovieToHoldList, holdList } = useContext(GlobalContext);
+  const { addMovieToHoldList, holdList,watchedMovie } = useContext(GlobalContext);
 
   let storedMovies = holdList.find(storedMovie => storedMovie.id === movie.id)
+  let storedMoviesWatched = watchedMovie.find((storedMovieWatched => storedMovieWatched.id === movie.id ) )
 
-  const holdListDisabled = storedMovies ? true : false
+  const holdListDisabled = storedMovies ? true : storedMoviesWatched ? true : false
 
   return (
     <div className="my-2 px-20">
+
       {/* Movie Data  */}
       <div>
         <div>
@@ -23,8 +25,10 @@ const SearchedCards = ({ movie }) => {
         <div className="">
           <div className="my-1 text-lg">{movie.title}</div>
           <div className="my-1 text-md">{movie.release_date}</div>
+          <div className="my-1 text-md">Rating:{movie.vote_average} </div>
         </div>
       </div>
+
       {/* Buttons */}
       <div className="my-2">
         <button

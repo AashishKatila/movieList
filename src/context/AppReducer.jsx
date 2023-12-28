@@ -29,6 +29,13 @@ export default (state,action) =>{
                     ),
                     holdList: [action.payload,...state.holdList]
                 }
+                case "REMOVE_MOVIE_FROM_WATCHED":
+                    return{
+                        ...state,
+                        watchedMovie: state.watchedMovie.filter(
+                            (movie) => movie.id !== action.payload
+                        )
+                    }
         default:
             return state;
     }
