@@ -17,7 +17,7 @@ const AddHoldList = () => {
       .then((res) => res.json())
       .then((data) => {
         if (!data.errors) {
-          console.log(data);
+          // console.log(data);
           setResults(data.results);
         } else [setResults([])];
       });
