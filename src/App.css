@@ -1,5 +1,6 @@
 body{
   background-color: #D1D5DB;
+  font-family: 'Poppins';
 }
 .animate-fade-in {
     opacity: 0.3;
