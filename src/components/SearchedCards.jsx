@@ -2,10 +2,18 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import "../App.css";
 import genresData from './genres.json';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SearchedCards = ({ movie }) => {
   const { addMovieToHoldList, holdList, watchedMovie } =
     useContext(GlobalContext);
+
+    const showToastMessage  = (movie) => {
+      toast.success(`${movie.title} added to HoldList`, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    };
 
   let storedMovies = holdList.find(
     (storedMovie) => storedMovie.id === movie.id
@@ -52,7 +60,6 @@ const movieGenreNames = movieGenreIds.map(genreId => genreMap[genreId]);
           </div>
           <div>
             Genres: {movieGenreNames.join(', ')}
-            
           </div>
         </div>
       </div>
@@ -62,10 +69,11 @@ const movieGenreNames = movieGenreIds.map(genreId => genreMap[genreId]);
         <button
           className="py-2 px-4 rounded-md bg-blue-500 text-white disabled:opacity-60 "
           disabled={holdListDisabled}
-          onClick={() => addMovieToHoldList(movie)}
+          onClick={() => {showToastMessage(movie);addMovieToHoldList(movie); }}
         >
           Add to Holdlist
         </button>
+          <ToastContainer />
       </div>
     </div>
   );
